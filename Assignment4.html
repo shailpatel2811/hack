@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Html Form</title>
+	<link rel="stylesheet" type="text/css" href="p4.css">
+	<script>
+function validateForm() {
+  var fname = document.getElementById("fname").value;
+  var surname = document.getElementById("surname").value;
+  var bdate = document.getElementById("bdate").value;
+  var mobileno = document.getElementById("mobileno").value;
+  var b = document.forms["myForm"]["Add"].value;
+  var c = document.forms["myForm"]["city"].value;
+  var k = document.forms["myForm"]["Email id"].value;
+  if (fname == "") {
+        alert("First name can't be null");
+        return false;
+  }
+  if (surname == "") {
+        alert("Surname can't be null");
+        return false;
+  }
+  if (b == "" || b == null) {
+    alert("Address must be filled out");
+    return false;
+  }
+  if (c == "" || c == null) {
+    alert("City must be filled out");
+    return false;
+  }
+  if (k == "" || k == null) {
+    alert("Email must be filled out");
+    return false;
+  }
+  if (mobileno.match(phoneno) == false) {
+        alert("Enter valid mobile number");
+        return false;
+  }
+  if (byear > 2002) {
+        alert("Your age should be less than 18");
+        return false;
+  }
+}
+function myFunction() {
+      var x = document.getElementById("fname");
+      x.value = x.value.toUpperCase();
+    }
+    function myFunction2(){
+      var x = document.getElementById("surname");
+      x.value = x.value.toUpperCase();
+</script>
+</head>
+<body>
+<div class="bio" style="background-color: grey; height:2700px; text-align: center; font-size: larger; font-family: inherit">
+<h1>Form</h1>
+<table>
+    <form>
+      <div>
+        <b>
+
+          <tr>
+            <td>
+              First Name
+            </td>
+            <td>
+              <input type="text" name="firstname" placeholder="Firstname" id="fname"
+                onblur="myFunction()">
+            </td>
+          </tr>
+          <tr>
+            <td> Surname </td>
+            <td><input type="text" name="surname" placeholder="Surname" id="surname" onblur="myFunction2()">
+            </td>
+          </tr>
+          </b>
+      </div>
+    </form>
+  </table>
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post" required>
+	<div class="a">
+		<hr>
+  <label for="Add">Address :</label> 
+        <textarea rows=""8 cols="70" name="Add"
+                            id="Add"></textarea><br><br>
+  <label for="city">City:</label> 
+        <select name="city" id="city"> 
+            <option value="Vadodara">Vadodara</option> 
+            <option value="Surat">Surat</option> 
+            <option value="Nadiad">Rajkot</option>
+            <option value="Anand">Rajkot</option>
+            <option value="Pune">Rajkot</option>
+            <option value="Ahemdabad">Ahemdabad</option>
+            <option value="Rajkot">Rajkot</option> 
+        </select> <br><br>
+<hr>
+
+<table>
+    <form>
+      <div>
+        <b>
+
+          <tr>
+            <td>Mobile No </td>
+            <td><input type="text" name="mobileno" placeholder="Mobile number" id="mobileno"></td>
+          <tr>
+          <tr>
+            <td>Birthdate </td>
+            <td><input type="date" name="Birthdate" placeholder="Birthdate" id="bdate"></td>
+          </tr>
+        </b>
+      </div>
+    </form>
+  </table>
+
+
+  <label for="EMAIL ID">Email Id:</label><br> 
+  <input type="Email" name="Email id" id="Email id" placeholder="Enter your Email here"><br><br>
+  <hr>
+  Select Subject 
+        <br> 
+        <input type="checkbox" name="subject" id="maths"> 
+        <label for="maths">WT</label> 
+        <input type="checkbox" name="subject" id="science"> 
+        <label for="sceince">OS</label> 
+        <input type="checkbox" name="subject" id="english"> 
+        <label for="english">CO</label>
+        <input type="checkbox" name="subject" id="maths"> 
+        <label for="maths">DSA</label> 
+        <input type="checkbox" name="subject" id="science"> 
+        <label for="sceince">DBMS</label><br><br>
+ <hr>
+ <center>
+  <input type="submit" value="Submit">
+  </center></div>
+</form> 
+</div>
+</body>
+</html>
