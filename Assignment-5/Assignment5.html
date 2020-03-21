@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>National Workshop on Web Technology</title>
+<link rel='stylesheet' href='p51.css' type='text/css' />
+
+</head>
+<body onload="document.registration.userid.focus();">
+<h1><center>National Workshop On Web Technology</center></h1>
+<h2><center>Registration Form</center></h2>
+<form name='registration' onSubmit="return formValidation();">
+<ul>
+<center>
+<li><label for="fname">Fname:</label></li>
+<li><input type="text" name="fname" size="12" /></li>
+<li><label for="mname">Mname:</label></li>
+<li><input type="text" name="mname" size="12" /></li>
+<li><label for="lname">Lname:</label></li>
+<li><input type="text" name="lname" size="50" /></li>
+<li><label for="address">Address:</label></li>
+<li><input type="text" name="address" size="50" /></li>
+<li><label for="country">Country:</label></li>
+<li><select name="country">
+<option selected="" value="Default">(Please select a country)</option>
+<option value="AF">Australia</option>
+<option value="AL">Canada</option>
+<option value="DZ">India</option>
+<option value="AS">Russia</option>
+<option value="AD">USA</option>
+</select></li>
+<li><label for="zip">ZIP Code:</label></li>
+<li><input type="text" name="zip" /></li>
+<li><label for="email">Email:</label></li>
+<li><input type="text" name="email" size="50" /></li>
+<br>
+<li><label id="gender">Sex:</label></li>
+<li><input type="radio" name="msex" value="Male" /><span>Male</span><input type="radio" name="fsex" value="Female" /><span>Female</span></li>
+<br>
+<li><label>Language:</label></li>
+<li><input type="checkbox" name="en" value="en" checked /><span>English</span><input type="checkbox" name="nonen" value="noen" /><span>Non English</span></li>
+<br>
+<li><label>Profession:<lable><li>
+		<li><input type="radio" name="Student" value="Student"><span>Student</span>
+			<input type="radio" name="Speaker" value="Speaker"><span>Speaker</span>
+			<input type="radio" name="Visitor" value="Visitor"><span>Visitor</span>
+			<input type="radio" name="Teacher" value="Teacher"><span>Teacher</span>
+		</li><br>
+
+<li><input type="submit" name="submit" value="Submit" /></li>
+</center>
+</ul>
+</form>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyC2R-eL0RdnrS99PVKbWRwwP48wqeP43GQ",
+    authDomain: "nattional-workshop-database.firebaseapp.com",
+    databaseURL: "https://nattional-workshop-database.firebaseio.com",
+    projectId: "nattional-workshop-database",
+    storageBucket: "nattional-workshop-database.appspot.com",
+    messagingSenderId: "390548816076",
+    appId: "1:390548816076:web:5e57ddb7fed743121a8269",
+    measurementId: "G-8YYC53PP09"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+<script>
+    function getdata(){
+        Firebase.database().ref("User").set({
+            firstname : document.getElementById("fname").value,
+            mastname : document.getElementById("mname").value,
+            lastname : document.getElementById("lname").value,
+            Address : document.getElementById("Address").value,
+            Country : document.getElementById("Country").value,
+            ZIP Code : document.getElementById("ZIP Code").value,
+            Email : document.getElementById("Email").value,
+            Sex : document.getElementById("Sex").value,
+            Language : document.getElementById("Language").value,
+            profession : document.getElementById("profession").value
+        });
+    }
+</script>
+</body>
+</html>
