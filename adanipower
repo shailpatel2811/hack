@@ -1,0 +1,18 @@
+# Ruby program to illustrate
+# the exception in thread
+
+#!/usr/bin/ruby
+
+threads = []
+4.times do |value|
+
+	threads << Thread.new(value) do |a|
+
+		# raising an error when a become 2
+		raise "oops error!" if a == 2
+
+print "#{a}\n"
+end
+
+end
+threads.each {|b| b.join }
